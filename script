@@ -1,0 +1,376 @@
+{
+  "Name": "_Mevaker",
+  "CreationDate": "2019-1-2",
+  "Commands": [
+    {
+      "Command": "store",
+      "Target": "fast",
+      "Value": "!replayspeed"
+    },
+    {
+      "Command": "store",
+      "Target": "100",
+      "Value": "!TIMEOUT_WAIT"
+    },
+    {
+      "Command": "store",
+      "Target": "100",
+      "Value": "!TIMEOUT_PAGELOAD"
+    },
+    {
+      "Command": "open",
+      "Target": "https://statements.mevaker.gov.il",
+      "Value": ""
+    },
+    {
+      "Command": "selectFrame",
+      "Target": "id=iframeMH",
+      "Value": ""
+    },
+    {
+      "Command": "pause",
+      "Target": "1000",
+      "Value": ""
+    },
+    {
+      "Command": "waitForVisible",
+      "Target": "id=txtUser",
+      "Value": ""
+    },
+    {
+      "Command": "type",
+      "Target": "id=txtUser",
+      "Value": "FILL-USER"
+    },
+    {
+      "Command": "waitForVisible",
+      "Target": "id=txtPass",
+      "Value": ""
+    },
+    {
+      "Command": "type",
+      "Target": "id=txtPass",
+      "Value": "FILL-PASS"
+    },
+    {
+      "Command": "waitForVisible",
+      "Target": "id=btnLogin",
+      "Value": ""
+    },
+    {
+      "Command": "clickAndWait",
+      "Target": "id=btnLogin",
+      "Value": ""
+    },
+    {
+      "Command": "comment",
+      "Target": "*** נכנסנו, מתחול לרוץ על קובץ הפרטים ***",
+      "Value": ""
+    },
+    {
+      "Command": "csvRead",
+      "Target": "Production_in_progress",
+      "Value": ""
+    },
+    {
+      "Command": "echo",
+      "Target": "Status Before Loop = ${!csvReadStatus}, line = ${!csvReadLineNumber}",
+      "Value": ""
+    },
+    {
+      "Command": "while",
+      "Target": "\"${!csvReadStatus}\" == \"OK\"",
+      "Value": ""
+    },
+    {
+      "Command": "echo",
+      "Target": "Status Start Loop = ${!csvReadStatus}, line = ${!csvReadLineNumber}",
+      "Value": ""
+    },
+    {
+      "Command": "comment",
+      "Target": "*** נקודת ההתחלה תמיד הדיווח על תקומה ***",
+      "Value": ""
+    },
+    {
+      "Command": "open",
+      "Target": "https://statements.mevaker.gov.il/DonationDetails_M.aspx",
+      "Value": ""
+    },
+    {
+      "Command": "comment",
+      "Target": "*** בוחרים אדם פרטי ***",
+      "Value": ""
+    },
+    {
+      "Command": "waitForVisible",
+      "Target": "id=rbdDonatorType_0",
+      "Value": ""
+    },
+    {
+      "Command": "type",
+      "Target": "id=rbdDonatorType_0",
+      "Value": "אדם פרטי"
+    },
+    {
+      "Command": "click",
+      "Target": "id=rbdDonatorType_0",
+      "Value": ""
+    },
+    {
+      "Command": "comment",
+      "Target": "*** בחירת תושב ישראל ***",
+      "Value": ""
+    },
+    {
+      "Command": "type",
+      "Target": "id=rbdDonatorCitizenType_0",
+      "Value": "תושב ישראל"
+    },
+    {
+      "Command": "click",
+      "Target": "id=rbdDonatorCitizenType_0",
+      "Value": ""
+    },
+    {
+      "Command": "comment",
+      "Target": "*** הכנסת שם פרטי ***",
+      "Value": ""
+    },
+    {
+      "Command": "click",
+      "Target": "id=txtDonatorFirstName",
+      "Value": ""
+    },
+    {
+      "Command": "type",
+      "Target": "id=txtDonatorFirstName",
+      "Value": "${!COL15}"
+    },
+    {
+      "Command": "comment",
+      "Target": "*** הכנסת שם משפחה ***",
+      "Value": ""
+    },
+    {
+      "Command": "click",
+      "Target": "id=txtDonatorLastName",
+      "Value": ""
+    },
+    {
+      "Command": "type",
+      "Target": "id=txtDonatorLastName",
+      "Value": "${!COL14}"
+    },
+    {
+      "Command": "comment",
+      "Target": "*** תעודת זהות ***",
+      "Value": ""
+    },
+    {
+      "Command": "waitForVisible",
+      "Target": "id=txtDonatorTZ",
+      "Value": ""
+    },
+    {
+      "Command": "click",
+      "Target": "id=txtDonatorTZ",
+      "Value": ""
+    },
+    {
+      "Command": "type",
+      "Target": "id=txtDonatorTZ",
+      "Value": "${!COL13}"
+    },
+    {
+      "Command": "comment",
+      "Target": "*** בחירה האם מהון עצמי ***",
+      "Value": ""
+    },
+    {
+      "Command": "select",
+      "Target": "id=SelectIsRelative",
+      "Value": "label=כן"
+    },
+    {
+      "Command": "click",
+      "Target": "//*[@id=\"SelectIsRelative\"]/option[2]",
+      "Value": ""
+    },
+    {
+      "Command": "comment",
+      "Target": "*** אמצעי תשלום***",
+      "Value": ""
+    },
+    {
+      "Command": "waitForVisible",
+      "Target": "id=SelectDonationType",
+      "Value": ""
+    },
+    {
+      "Command": "select",
+      "Target": "id=SelectDonationType",
+      "Value": "label=באמצעות אינטרנט"
+    },
+    {
+      "Command": "waitForVisible",
+      "Target": "id=txtPayPalAccount",
+      "Value": ""
+    },
+    {
+      "Command": "click",
+      "Target": "id=txtPayPalAccount",
+      "Value": ""
+    },
+    {
+      "Command": "type",
+      "Target": "id=txtPayPalAccount",
+      "Value": "https://headstart.co.il"
+    },
+    {
+      "Command": "echo",
+      "Target": "id=ddlBank666",
+      "Value": "label=${!COL4}"
+    },
+    {
+      "Command": "echo",
+      "Target": "id=ddlBranch666",
+      "Value": "label=${!COL3}"
+    },
+    {
+      "Command": "echo",
+      "Target": "id=txtAccountNumber666",
+      "Value": ""
+    },
+    {
+      "Command": "echo",
+      "Target": "id=txtAccountNumber666",
+      "Value": "${!COL2}"
+    },
+    {
+      "Command": "comment",
+      "Target": "*** בחירת עיר ***",
+      "Value": ""
+    },
+    {
+      "Command": "select",
+      "Target": "id=txtCity",
+      "Value": "label=${!COL11}"
+    },
+    {
+      "Command": "click",
+      "Target": "//*[@id=\"txtCity\"]/option[123]",
+      "Value": ""
+    },
+    {
+      "Command": "comment",
+      "Target": "*** הכנסת סכום התרומה ***",
+      "Value": ""
+    },
+    {
+      "Command": "click",
+      "Target": "id=txtDonationSum",
+      "Value": ""
+    },
+    {
+      "Command": "type",
+      "Target": "id=txtDonationSum",
+      "Value": "${!COL1}"
+    },
+    {
+      "Command": "comment",
+      "Target": "*** הכנסת התאריך ***",
+      "Value": ""
+    },
+    {
+      "Command": "click",
+      "Target": "id=txtDonationDate",
+      "Value": ""
+    },
+    {
+      "Command": "pause",
+      "Target": "500",
+      "Value": ""
+    },
+    {
+      "Command": "select",
+      "Target": "//*[@id=\"ui-datepicker-div\"]/div/div/select[2]",
+      "Value": "label=2018"
+    },
+    {
+      "Command": "select",
+      "Target": "//*[@id=\"ui-datepicker-div\"]/div/div/select[1]",
+      "Value": "label=דצמבר"
+    },
+    {
+      "Command": "click",
+      "Target": "link=${!COL7}",
+      "Value": ""
+    },
+    {
+      "Command": "comment",
+      "Target": "*** אחרי זה, הלחיצה על שמירה ***",
+      "Value": ""
+    },
+    {
+      "Command": "click",
+      "Target": "id=btnSave",
+      "Value": ""
+    },
+    {
+      "Command": "pause",
+      "Target": "1000",
+      "Value": ""
+    },
+    {
+      "Command": "comment",
+      "Target": "*** Making screenshot ***",
+      "Value": ""
+    },
+    {
+      "Command": "captureEntirePageScreenshot",
+      "Target": "Screenshot-TZ-${!COL13}-${!csvReadLineNumber}",
+      "Value": ""
+    },
+    {
+      "Command": "localStorageExport",
+      "Target": "Screenshot-TZ-${!COL13}-${!csvReadLineNumber}.png",
+      "Value": "#DeleteAfterExport"
+    },
+    {
+      "Command": "comment",
+      "Target": "*** While Looping ***",
+      "Value": ""
+    },
+    {
+      "Command": "storeEval",
+      "Target": "${!csvReadLineNumber}+1",
+      "Value": "!csvReadLineNumber"
+    },
+    {
+      "Command": "store",
+      "Target": "true",
+      "Value": "!errorIgnore"
+    },
+    {
+      "Command": "echo",
+      "Target": "Reading CSV line No.  ${!csvReadLineNumber} ",
+      "Value": "!errorIgnore"
+    },
+    {
+      "Command": "csvRead",
+      "Target": "Production_in_progress",
+      "Value": ""
+    },
+    {
+      "Command": "store",
+      "Target": "false",
+      "Value": "!errorIgnore"
+    },
+    {
+      "Command": "endWhile",
+      "Target": "",
+      "Value": ""
+    }
+  ]
+}
